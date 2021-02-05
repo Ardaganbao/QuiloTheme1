@@ -30,48 +30,53 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 		<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
 
-		<nav id="main-nav" class="navbar navbar-expand-md navbar-dark bg-primary" aria-labelledby="main-nav-label">
+		<nav id="main-nav" class="navbar navbar-expand-md  navbar-light flex-colomn " aria-labelledby="main-nav-label">
 
 			<h2 id="main-nav-label" class="sr-only">
 				<?php esc_html_e( 'Main Navigation', 'understrap' ); ?>
 			</h2>
 
 		<?php if ( 'container' === $container ) : ?>
-			<div class="container">
+			<div class="container flex-grow-max flex-order-1">
 		<?php endif; ?>
-
-					<!-- Your site title as branding in the menu -->
+ 				
+				<!-- Your site title as branding in the menu -->
+				<div id="logo-branding">
+					<?php $tagline = get_bloginfo('description'); ?>
 					<?php if ( ! has_custom_logo() ) { ?>
-
-						<?php if ( is_front_page() && is_home() ) : ?>
-
-							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
-
-						<?php else : ?>
-
-							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
-
-						<?php endif; ?>
-
+						<h1 class="navbar-brand mb-0 logo_text logo_text-only logo_text-color"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
+						<?php if ( $tagline!='' ) { ?> <p class="logo_tagline logo_tagline-only logo_text-color"><?php bloginfo('description'); ?></p><?php } ?> 	
 						<?php
 					} else {
 						the_custom_logo();
-					}
+						?>
+						<h1 class="logo_text logo_text-color"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
+						<?php if ( $tagline!='' ) {  ?> <p class="logo_tagline logo_text-color"><?php bloginfo('description'); ?></p><?php } ?> 
+					<?php 
+					}  
 					?>
-					<!-- end custom logo -->
 
+
+				</div>	
+ 			<!-- end custom logo -->
+					 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-
+				<?php if ( 'container' === $container ) : ?>
+			</div><!-- .container -->
+			<?php endif; ?>
+			<?php if ( 'container' === $container ) : ?>
+			<div class="container flex-order-2 container-fullWidth">
+		<?php endif; ?>
 				<!-- The WordPress Menu goes here -->
 				<?php
 				wp_nav_menu(
 					array(
 						'theme_location'  => 'primary',
-						'container_class' => 'collapse navbar-collapse',
+						'container_class' => 'collapse navbar-collapse' ,
 						'container_id'    => 'navbarNavDropdown',
-						'menu_class'      => 'navbar-nav ml-auto',
+						'menu_class'      => 'navbar-nav Menu1 Primary-color'  ,
 						'fallback_cb'     => '',
 						'menu_id'         => 'main-menu',
 						'depth'           => 2,
@@ -86,3 +91,4 @@ $container = get_theme_mod( 'understrap_container_type' );
 		</nav><!-- .site-navigation -->
 
 	</div><!-- #wrapper-navbar end -->
+ 

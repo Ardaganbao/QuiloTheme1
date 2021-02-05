@@ -46,7 +46,7 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'primary' => __( 'Primary Menu', 'understrap' ),
+				'primary' => __( 'Primary Menu', 'understrap' ), 
 			)
 		);
 
@@ -91,21 +91,41 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 				'link',
 			)
 		);
-
+	   
 		// Set up the WordPress core custom background feature.
-		add_theme_support(
+		/*add_theme_support(
 			'custom-background',
 			apply_filters(
 				'understrap_custom_background_args',
 				array(
 					'default-color' => 'ffffff',
-					'default-image' => '',
+					'default-image' => '../img/paw.png',
 				)
 			)
+		);*/ 
+		$args = array(
+			'default-color' => 'e3edf2',
+			'default-image' => get_template_directory_uri() . '/img/paw.png',
+			'default-primary-color' => '4e5367',
+			'default-logo-text-color' => 'FFE380',
+			'wp-head-callback'       => 'understrap_custom_background_cb',
 		);
+		add_theme_support( 'custom-background', $args );
+
+		 
+	 
+ 
 
 		// Set up the WordPress Theme logo feature.
-		add_theme_support( 'custom-logo' );
+		$defaults = array(
+			'height'      => 159,
+			'width'       => 159,
+			'flex-height' => false,
+			'flex-width'  => false,
+			'header-text' => array( 'site-title', 'site-description' ),
+		   'unlink-homepage-logo' => true,   
+			);
+		add_theme_support( 'custom-logo', $defaults ); 
 
 		// Add support for responsive embedded content.
 		add_theme_support( 'responsive-embeds' );
@@ -117,7 +137,7 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 }
 
 
-add_filter( 'excerpt_more', 'understrap_custom_excerpt_more' );
+//add_filter( 'excerpt_more', 'understrap_custom_excerpt_more' );
 
 if ( ! function_exists( 'understrap_custom_excerpt_more' ) ) {
 	/**
@@ -135,7 +155,7 @@ if ( ! function_exists( 'understrap_custom_excerpt_more' ) ) {
 	}
 }
 
-add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );
+//add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );
 
 if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 	/**
