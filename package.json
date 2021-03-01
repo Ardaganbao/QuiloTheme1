@@ -17,7 +17,6 @@
     "wordpress",
     "theme",
     "framework",
-    "bootstrap",
     "underscores"
   ],
   "author": "The UnderStrap Authors (https://github.com/understrap/understrap/graphs/contributors)",
@@ -34,7 +33,6 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "autoprefixer": "^10.2.3",
-    "bootstrap": "^4.6.0",
     "browser-sync": "^2.26.13",
     "del": "^6.0.0",
     "font-awesome": "^4.7.0",
