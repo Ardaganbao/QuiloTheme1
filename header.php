@@ -22,6 +22,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 </head>
 
 <body <?php body_class(); ?> <?php understrap_body_attributes(); ?>>
+ 
 <?php do_action( 'wp_body_open' ); ?>
 <div class="site" id="page">
 
@@ -91,4 +92,8 @@ $container = get_theme_mod( 'understrap_container_type' );
 		</nav><!-- .site-navigation -->
 
 	</div><!-- #wrapper-navbar end -->
- 
+ <?php
+if ( function_exists('yoast_breadcrumb') ) {
+  yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+}
+?>

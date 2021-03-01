@@ -115,7 +115,7 @@ if ( ! function_exists( 'quilo_get_customizer_css' ) ) {
 		
 		:root {
 			--primary: <?php echo trim( get_theme_mod( 'primary_color', '#4e5367' )); ?>;
-			--secondary: <?php echo trim( get_theme_mod( 'secondary_color', '#FFE380' )); ?>;			
+			--secondary: <?php echo trim( get_theme_mod( 'secondary_color', '#000000' )); ?>;			
 			--logo_text: <?php echo trim( get_theme_mod( 'logo_text_color', '#FFE380' )); ?>;
 			--background: #<?php echo trim( get_theme_mod( $color, 'e3edf2' )); ?>;
 
