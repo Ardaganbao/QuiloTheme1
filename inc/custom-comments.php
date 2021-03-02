@@ -8,12 +8,12 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-// Add Bootstrap classes to comment form fields.
-add_filter( 'comment_form_default_fields', 'understrap_bootstrap_comment_form_fields' );
+// Add  classes to comment form fields.
+add_filter( 'comment_form_default_fields', 'understrap_comment_form_fields' );
 
-if ( ! function_exists( 'understrap_bootstrap_comment_form_fields' ) ) {
+if ( ! function_exists( 'understrap_comment_form_fields' ) ) {
 	/**
-	 * Add Bootstrap classes to WP's comment form default fields.
+	 * Add  classes to WP's comment form default fields.
 	 *
 	 * @param array $fields {
 	 *     Default comment fields.
@@ -26,11 +26,11 @@ if ( ! function_exists( 'understrap_bootstrap_comment_form_fields' ) ) {
 	 *
 	 * @return array
 	 */
-	function understrap_bootstrap_comment_form_fields( $fields ) {
+	function understrap_comment_form_fields( $fields ) {
 
-		$replace = array(
-			'<p class="' => '<div class="form-group ',
-			'<input'     => '<input class="form-control" ',
+		/*$replace = array(
+			'<p class="' => '<div class="Quilo-form-group ',
+			'<input'     => '<input class="Quilo-form-control" ',
 			'</p>'       => '</div>',
 		);
 
@@ -45,32 +45,32 @@ if ( ! function_exists( 'understrap_bootstrap_comment_form_fields' ) ) {
 		}
 
 		$replace = array(
-			'<p class="' => '<div class="form-group form-check ',
+			'<p class="' => '<div class="Quilo-form-group Quilo-form-check ',
 			'<input'     => '<input class="form-check-input" ',
 			'<label'     => '<label class="form-check-label" ',
 			'</p>'       => '</div>',
 		);
 		if ( isset( $fields['cookies'] ) ) {
 			$fields['cookies'] = strtr( $fields['cookies'], $replace );
-		}
+		}*/
 
 		return $fields;
 	}
-} // End of if function_exists( 'understrap_bootstrap_comment_form_fields' )
+} // End of if function_exists( 'understrap_comment_form_fields' )
 
-// Add Bootstrap classes to comment form submit button and comment field.
-add_filter( 'comment_form_defaults', 'understrap_bootstrap_comment_form' );
+// Add  classes to comment form submit button and comment field.
+add_filter( 'comment_form_defaults', 'understrap_comment_form' );
 
-if ( ! function_exists( 'understrap_bootstrap_comment_form' ) ) {
+if ( ! function_exists( 'understrap_comment_form' ) ) {
 	/**
-	 * Adds Bootstrap classes to comment form submit button and comment field.
+	 * Adds  classes to comment form submit button and comment field.
 	 *
 	 * @param string[] $args Comment form arguments and fields.
 	 *
 	 * @return string[]
 	 */
-	function understrap_bootstrap_comment_form( $args ) {
-		$replace = array(
+	function understrap_comment_form( $args ) {
+		/*$replace = array(
 			'<p class="' => '<div class="form-group ',
 			'<textarea'  => '<textarea class="form-control" ',
 			'</p>'       => '</div>',
@@ -83,10 +83,10 @@ if ( ! function_exists( 'understrap_bootstrap_comment_form' ) ) {
 		if ( isset( $args['class_submit'] ) ) {
 			$args['class_submit'] = 'btn btn-secondary';
 		}
-
+*/
 		return $args;
 	}
-} // End of if function_exists( 'understrap_bootstrap_comment_form' ).
+} // End of if function_exists( 'understrap_comment_form' ).
 
 
 // Add note if comments are closed.

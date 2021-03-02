@@ -138,7 +138,7 @@ if (!function_exists('understrap_theme_customize_register')) {
 				'understrap_container_type',
 				array(
 					'label'       => __('Container Width', 'understrap'),
-					'description' => __('Choose between Bootstrap\'s container and container-fluid', 'understrap'),
+					'description' => __('Choose between fixed container and full', 'understrap'),
 					'section'     => 'understrap_theme_layout_options',
 					'settings'    => 'understrap_container_type',
 					'type'        => 'select',

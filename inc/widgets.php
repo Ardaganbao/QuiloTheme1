@@ -138,7 +138,7 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 			array(
 				'name'          => __( 'Hero Canvas', 'understrap' ),
 				'id'            => 'herocanvas',
-				'description'   => __( 'Full size canvas hero area for Bootstrap and other custom HTML markup', 'understrap' ),
+				'description'   => __( 'Full size canvas hero area for  other custom HTML markup', 'understrap' ),
 				'before_widget' => '',
 				'after_widget'  => '',
 				'before_title'  => '',

@@ -215,7 +215,7 @@ gulp.task( 'clean-source', function() {
 // gulp copy-assets.
 // Copy all needed dependency assets files from node_modules to theme's /js, /scss and /fonts folder. Run this task after npm update
 
-////////////////// All Bootstrap SASS  Assets /////////////////////////
+////////////////// All  SASS  Assets /////////////////////////
 gulp.task( 'copy-assets', function( done ) {
 	
 	// Copy all Font Awesome Fonts

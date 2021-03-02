@@ -1,5 +1,5 @@
 {
-  "name": "understrap",
+  "name": "QuiloTheme1NoBS",
   "version": "0.9.4",
   "description": "WordPress Theme framework",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/understrap/understrap.git"
+    "url": "https://github.com/Ardaganbao/QuiloTheme1.git"
   },
   "keywords": [
     "wordpress",
@@ -19,12 +19,12 @@
     "framework",
     "underscores"
   ],
-  "author": "The UnderStrap Authors (https://github.com/understrap/understrap/graphs/contributors)",
+  "author": "Ardagan Bao",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/understrap/understrap/issues"
+    "url": "https://github.com/Ardaganbao/QuiloTheme1/issues"
   },
-  "homepage": "https://understrap.com",
+  "homepage": "https://www.ardagan.fr",
   "dependencies": {
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1"

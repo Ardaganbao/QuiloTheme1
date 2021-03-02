@@ -1,13 +1,12 @@
 {
 	"name": "understrap/understrap",
-	"description": "Combines Automattic´s Underscores Starter Theme and Bootstrap 4",
+	"description": "Combines Automattic´s Underscores Starter Theme",
 	"type": "wordpress-theme",
 	"license": "GPL-2.0-only",
 	"minimum-stability": "stable",
 	"keywords": [
 		"wordpress",
-		"theme",
-		"bootstrap"
+		"theme"
 	],
 	"homepage": "https://github.com/understrap/understrap",
 	"require": {

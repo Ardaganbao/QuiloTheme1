@@ -335,7 +335,7 @@ msgid "Container Width"
 msgstr ""
 
 #: inc/customizer.php:99
-msgid "Choose between Bootstrap's container and container-fluid"
+msgid "Choose between fixed container and full"
 msgstr ""
 
 #: inc/customizer.php:104
@@ -740,7 +740,7 @@ msgstr ""
 
 #. Description of the theme
 msgid ""
-"Combination of Automattic´s _s theme and Bootstrap 4. Made as a solid "
+"Combination of Automattic´s _s theme. Made as a solid "
 "starting point for your next theme project and WordPress website. Use it as "
 "starter theme or as a parent theme. It is up to you. Including Font Awesome "
 "support, built-in widget slider and much more you need for basic websites. "
