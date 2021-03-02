@@ -52,7 +52,7 @@ if ( ! function_exists( 'understrap_custom_header_setup' ) ) {
 				'default-image' => array(
 					'url'           => '%s/img/home_header.jpg',
 					'thumbnail_url' => '%s/img/home_header.jpg',
-					'description'   => __( 'Default Header Image', 'understrap' ),
+					'description'   => __( 'Default Header Image', 'Quilo' ),
 				),
 			)
 		);

@@ -22,13 +22,13 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 			<?php
 			get_template_part( 'sidebar-templates/sidebar', 'left' );
-
+			die('ohhhhh to implement after all!!! (both-sidebarpage.php)');
 			if ( is_active_sidebar( 'left-sidebar' ) xor is_active_sidebar( 'right-sidebar' ) ) {
 				$class = 'col-md-8';
 			} elseif ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
 				$class = 'col-md-4';
 			} else {
-				$class = 'col-md-12';
+				$class = ' ';
 			}
 			?>
 			<div class="<?php echo $class; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> content-area" id="primary">

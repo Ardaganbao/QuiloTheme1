@@ -61,25 +61,26 @@ if ( ! function_exists( 'understrap_widget_classes' ) ) {
 
 		// Only apply changes if sidebar ID is set and the widget's classes depend on the number of widgets in the sidebar.
 		if ( isset( $params[0]['id'] ) && strpos( $params[0]['before_widget'], 'dynamic-classes' ) ) {
+			die('ohhhhh to implement after all!!! (understrap_widget_classes)');
 			$sidebar_id   = $params[0]['id'];
 			$widget_count = count( $sidebars_widgets_count[ $sidebar_id ] );
 
 			$widget_classes = 'widget-count-' . $widget_count;
 			if ( 0 === $widget_count % 4 || $widget_count > 6 ) {
 				// Four widgets per row if there are exactly four or more than six widgets.
-				$widget_classes .= ' col-md-3';
+				$widget_classes .= ' col-md-3 sidebarID${$sidebar_id}';
 			} elseif ( 6 === $widget_count ) {
 				// If exactly six widgets are published.
-				$widget_classes .= ' col-md-2';
+				$widget_classes .= ' col-md-2 sidebarID${$sidebar_id}';
 			} elseif ( $widget_count >= 3 ) {
 				// Three widgets per row if there's three or more widgets.
-				$widget_classes .= ' col-md-4';
+				$widget_classes .= ' col-md-4 sidebarID${$sidebar_id}';
 			} elseif ( 2 === $widget_count ) {
 				// If two widgets are published.
-				$widget_classes .= ' col-md-6';
+				$widget_classes .= ' col-md-6 sidebarID${$sidebar_id}';
 			} elseif ( 1 === $widget_count ) {
 				// If just on widget is active.
-				$widget_classes .= ' col-md-12';
+				$widget_classes .= '   sidebarID${$sidebar_id}';
 			}
 
 			// Replace the placeholder class 'dynamic-classes' with the classes stored in $widget_classes.
