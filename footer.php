@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -8,16 +9,16 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-$container = get_theme_mod( 'understrap_container_type' );
+$container = get_theme_mod('understrap_container_type');
 ?>
 
-<?php get_template_part( 'sidebar-templates/sidebar', 'footerfull' ); ?>
+<?php get_template_part('sidebar-templates/sidebar', 'footerfull'); ?>
 
 <div class="wrapper" id="wrapper-footer">
 
-	<div class="<?php echo esc_attr( $container ); ?>">
+	<div class="<?php echo esc_attr($container); ?>">
 
 		<div class="row">
 
@@ -25,27 +26,29 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 				<footer class="site-footer" id="colophon">
 
-					<div class="site-info">
-
+					<div class="site-info"> 
 						<?php understrap_site_info(); ?>
 
 					</div><!-- .site-info -->
 
 				</footer><!-- #colophon -->
 
-			</div><!--col end -->
+			</div>
+			<!--col end -->
 
 		</div><!-- row end -->
 
 	</div><!-- container end -->
 
 </div><!-- wrapper end -->
+</div><!-- #allpages we need this extra closing tag here -->
 
 </div><!-- #page we need this extra closing tag here -->
+</div><!-- #main-canvas we need this extra closing tag here -->
+
 
 <?php wp_footer(); ?>
 
 </body>
 
 </html>
-

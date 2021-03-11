@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Theme basic setup
  *
@@ -6,16 +7,16 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 // Set the content width based on the theme's design and stylesheet.
-if ( ! isset( $content_width ) ) {
+if (!isset($content_width)) {
 	$content_width = 640; /* pixels */
 }
 
-add_action( 'after_setup_theme', 'understrap_setup' );
+add_action('after_setup_theme', 'understrap_setup');
 
-if ( ! function_exists( 'understrap_setup' ) ) {
+if (!function_exists('understrap_setup')) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -23,17 +24,18 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function understrap_setup() {
+	function understrap_setup()
+	{
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on understrap, use a find and replace
 		 * to change 'understrap' to the name of your theme in all the template files
 		 */
-		load_theme_textdomain( 'understrap', get_template_directory() . '/languages' );
+		load_theme_textdomain('understrap', get_template_directory() . '/languages');
 
 		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+		add_theme_support('automatic-feed-links');
 
 		/*
 		 * Let WordPress manage the document title.
@@ -41,12 +43,12 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_theme_support( 'title-tag' );
+		add_theme_support('title-tag');
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'primary' => __( 'Primary Menu', 'understrap' ), 
+				'primary' => __('Primary Menu', 'understrap'),
 			)
 		);
 
@@ -70,12 +72,12 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 		/*
 		 * Adding Thumbnail basic support
 		 */
-		add_theme_support( 'post-thumbnails' );
+		add_theme_support('post-thumbnails');
 
 		/*
 		 * Adding support for Widget edit icons in customizer
 		 */
-		add_theme_support( 'customize-selective-refresh-widgets' );
+		add_theme_support('customize-selective-refresh-widgets');
 
 		/*
 		 * Enable support for Post Formats.
@@ -91,7 +93,7 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 				'link',
 			)
 		);
-	   
+
 		// Set up the WordPress core custom background feature.
 		/*add_theme_support(
 			'custom-background',
@@ -102,44 +104,56 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 					'default-image' => '../img/paw.png',
 				)
 			)
-		);*/ 
+		);*/
 		$args = array(
 			'default-color' => 'e3edf2',
 			'default-image' => get_template_directory_uri() . '/img/paw.png',
-			'default-primary-color' => '4e5367',
-			'default-logo-text-color' => 'FFE380',
+			'default-dark-primary-color' => '303F9F',
+			'default-default-primary-color' => '3F51B5',
+			'default-light-primary-color' => 'C5CAE9',
+			'default-text-primary-color' => 'FFFFFF',
+			'default-accent-color' => 'FF9800',
+			'default-primary-text-color' => '212121',
+			'default-secondary-text-color' => '757575',
+			'default-divider-color' => 'BDBDBD', 
 			'wp-head-callback'       => 'understrap_custom_background_cb',
 		);
-		add_theme_support( 'custom-background', $args );
+		add_theme_support('custom-background', $args);
 
-		 
-	 
- 
+
+
+
 
 		// Set up the WordPress Theme logo feature.
 		$defaults = array(
 			'height'      => 159,
-			'width'       => 159,
 			'flex-height' => false,
-			'flex-width'  => false,
-			'header-text' => array( 'site-title', 'site-description' ),
-		   'unlink-homepage-logo' => true,   
-			);
-		add_theme_support( 'custom-logo', $defaults ); 
+			'flex-width'  => true,
+			'header-text' => array('site-title', 'site-description'),
+			'unlink-homepage-logo' => true,
+		);
+		add_theme_support('custom-logo', $defaults);
 
 		// Add support for responsive embedded content.
-		add_theme_support( 'responsive-embeds' );
+		add_theme_support('responsive-embeds');
+
+
 
 		// Check and setup theme default settings.
 		understrap_setup_theme_default_settings();
-
 	}
+}
+
+add_action( 'wp_enqueue_scripts', 'understrap__scripts' );
+function understrap__scripts()
+{
+	wp_enqueue_script('quilo_javascript',			get_template_directory_uri() . '/js/quilo.js');
 }
 
 
 //add_filter( 'excerpt_more', 'understrap_custom_excerpt_more' );
 
-if ( ! function_exists( 'understrap_custom_excerpt_more' ) ) {
+if (!function_exists('understrap_custom_excerpt_more')) {
 	/**
 	 * Removes the ... from the excerpt read more link
 	 *
@@ -147,8 +161,9 @@ if ( ! function_exists( 'understrap_custom_excerpt_more' ) ) {
 	 *
 	 * @return string
 	 */
-	function understrap_custom_excerpt_more( $more ) {
-		if ( ! is_admin() ) {
+	function understrap_custom_excerpt_more($more)
+	{
+		if (!is_admin()) {
 			$more = '';
 		}
 		return $more;
@@ -157,7 +172,7 @@ if ( ! function_exists( 'understrap_custom_excerpt_more' ) ) {
 
 //add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );
 
-if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
+if (!function_exists('understrap_all_excerpts_get_more_link')) {
 	/**
 	 * Adds a custom read more link to all excerpts, manually or automatically generated
 	 *
@@ -165,9 +180,10 @@ if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 	 *
 	 * @return string
 	 */
-	function understrap_all_excerpts_get_more_link( $post_excerpt ) {
-		if ( ! is_admin() ) {
-			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary understrap-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __(
+	function understrap_all_excerpts_get_more_link($post_excerpt)
+	{
+		if (!is_admin()) {
+			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary understrap-read-more-link" href="' . esc_url(get_permalink(get_the_ID())) . '">' . __(
 				'Read More...',
 				'understrap'
 			) . '</a></p>';

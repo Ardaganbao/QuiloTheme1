@@ -31,7 +31,7 @@ add_action('customize_register', 'understrap_customize_register');
 if (!function_exists('understrap_custom_background_cb')) {
 	function understrap_custom_background_cb()
 	{
-		$background = get_background_image();
+		$background = get_background_image(); 
 		$color = get_background_color();
 		if (!$background && !$color)
 			return;
@@ -64,20 +64,22 @@ if (!function_exists('understrap_custom_background_cb')) {
 				<?php echo trim($style); ?>
 			}
 
-			//body .logo_header .logo_text a,.Primary-color {   color: <?php echo trim(get_theme_mod('logo_text_color', '#FFE380')); ?> !important ;}
-			:root {
-				--primary: <?php echo trim(get_theme_mod('primary_color', '#4e5367')); ?>;
-				--secondary: <?php echo trim(get_theme_mod('secondary_color', '#000000')); ?>;
-				--logo_text: <?php echo trim(get_theme_mod('logo_text_color', '#FFE380')); ?>;
-				--background: #<?php echo trim(get_theme_mod($color, 'e3edf2')); ?>;
-
-				--light: #f8f9fa;
-				--dark: #343a40;
+			
+			:root { 
+				--dark-primary-color   : <?php echo trim(get_theme_mod('dark-primary-color', '#303F9F')); ?>; 
+				--default-primary-color: <?php echo trim(get_theme_mod('default-primary-color', '#3F51B5')); ?>; 
+				--light-primary-color  : <?php echo trim(get_theme_mod('light-primary-color', '#C5CAE9')); ?>; 
+				--text-primary-color   : <?php echo trim(get_theme_mod('text-primary-color', '#FFFFFF')); ?>; 
+				--accent-color         : <?php echo trim(get_theme_mod('accent-color', '#FF9800')); ?>; 
+				--primary-text-color   : <?php echo trim(get_theme_mod('primary-text-color', '#212121')); ?>; 
+				--secondary-text-color : <?php echo trim(get_theme_mod('secondary-text-color', '#757575')); ?>;  
+				--divider-color        : <?php echo trim(get_theme_mod('divider-color', '#BDBDBD')); ?>;  
 			}
 		</style>
 <?php
 	}
 }
+ 
 if (!function_exists('understrap_theme_slug_sanitize_select')) {
 
 	/**
@@ -161,70 +163,39 @@ if (!function_exists('understrap_theme_customize_register')) {
 			)
 		);
 
-		$wp_customize->add_setting(
-			'logo_text_color',
-			array(
-				'default'           => '#FFE380',
-				'sanitize_callback' => 'sanitize_hex_color',
-				'transport'         => 'postMessage',
-			)
-		);
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'logo_text_color',
-				array(
-					'label'   => __('Logo Color', 'Quilo'),
-					'section' => 'colors',
-				)
-			)
-		);
+ 
+		/*'default-dark-primary-color' => '303F9F',
+		'default-default-primary-color' => '3F51B5',
+		'default-light-primary-color' => 'C5CAE9',
+		'default-text-primary-color' => 'FFFFFF',
+		'default-accent-color' => 'FF9800',
+		'default-primary-text-color' => '212121',
+		'default-secondary-text-color' => '757575',
+		'default-divider-color' => 'BDBDBD', */
 
+	//$wp_customize->add_setting('primary_color',        array('default' => '#4e5367', 'sanitize_callback' => 'sanitize_hex_color','transport' => 'postMessage',));
+		$wp_customize->add_setting('dark-primary-color',   array('default' => '#303F9F', 'sanitize_callback' => 'sanitize_hex_color','transport' => 'postMessage',));
+		$wp_customize->add_setting('default-primary-color',array('default' => '#3F51B5', 'sanitize_callback' => 'sanitize_hex_color','transport' => 'postMessage',));
+		$wp_customize->add_setting('light-primary-color',  array('default' => '#C5CAE9', 'sanitize_callback' => 'sanitize_hex_color','transport' => 'postMessage',));
+		$wp_customize->add_setting('text-primary-color',   array('default' => '#FFFFFF', 'sanitize_callback' => 'sanitize_hex_color','transport' => 'postMessage',));
+		$wp_customize->add_setting('accent-color',         array('default' => '#FF9800', 'sanitize_callback' => 'sanitize_hex_color','transport' => 'postMessage',));
+		$wp_customize->add_setting('primary-text-color',   array('default' => '#212121', 'sanitize_callback' => 'sanitize_hex_color','transport' => 'postMessage',));
+		$wp_customize->add_setting('secondary-text-color', array('default' => '#757575', 'sanitize_callback' => 'sanitize_hex_color','transport' => 'postMessage',));
+		$wp_customize->add_setting('divider-color',        array('default' => '#BDBDBD', 'sanitize_callback' => 'sanitize_hex_color','transport' => 'postMessage',));
 
-		$wp_customize->add_setting(
-			'primary_color',
-			array(
-				'default'           => '#4e5367',
-				'sanitize_callback' => 'sanitize_hex_color',
-				'transport'         => 'postMessage',
-			)
-		);
+		//$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,'primary_color',        array('label'=> __('Primary color', 'Quilo'),'section' => 'colors',)));
+		$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,'dark-primary-color',   array('label'=> __('Dark Primary color (Menu...)', 'Quilo'),'section' => 'colors',)));
+		$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,'default-primary-color',array('label'=> __('Default Primary color (Header...)', 'Quilo'),'section' => 'colors',)));
+		$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,'light-primary-color',  array('label'=> __('Light Primary color (SubMenu...)', 'Quilo'),'section' => 'colors',)));
+		$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,'text-primary-color',   array('label'=> __('Text Primary color', 'Quilo'),'section' => 'colors',)));
+		$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,'accent-color',         array('label'=> __('Accent color', 'Quilo'),'section' => 'colors',)));
+		$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,'primary-text-color',   array('label'=> __('Primary text color (Menu SubMenu...)', 'Quilo'),'section' => 'colors',)));
+		$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,'secondary-text-color', array('label'=> __('Secondary Text color (not Used ?)', 'Quilo'),'section' => 'colors',)));
+		$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,'divider-color',        array('label'=> __('Divider color', 'Quilo'),'section' => 'colors',)));
 
+ 
 
-
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'primary_color',
-				array(
-					'label'   => __('Primary color', 'Quilo'),
-					'section' => 'colors',
-				)
-			)
-		);
-
-		$wp_customize->add_setting(
-			'secondary_color',
-			array(
-				'default'           => '#000000',
-				'sanitize_callback' => 'sanitize_hex_color',
-				'transport'         => 'postMessage',
-			)
-		);
-
-
-
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'secondary_color',
-				array(
-					'label'   => __('secondary color', 'Quilo'),
-					'section' => 'colors',
-				)
-			)
-		);
-
+ 
 		$wp_customize->add_section(
 			'cover_template_options',
 			array(

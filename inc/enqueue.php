@@ -29,7 +29,7 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 		} 
 		wp_register_style( 'theme-styles', false );
 		wp_enqueue_style( 'theme-styles' ); 
-		wp_add_inline_style( 'theme-styles', quilo_get_customizer_css()  );
+		 //wp_add_inline_style( 'theme-styles', quilo_get_customizer_css()  );
 	}
 } // End of if function_exists( 'understrap_scripts' ).
 

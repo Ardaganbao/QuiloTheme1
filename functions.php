@@ -27,10 +27,7 @@ $understrap_includes = array(
 	'/deprecated.php',                      // Load deprecated functions.
 );
 
-// Load WooCommerce functions if WooCommerce is activated.
-if ( class_exists( 'WooCommerce' ) ) {
-	$understrap_includes[] = '/woocommerce.php';
-}
+ 
 
 // Load Jetpack compatibility file if Jetpack is activiated.
 if ( class_exists( 'Jetpack' ) ) {
@@ -87,8 +84,8 @@ if ( ! function_exists( 'quilo_get_customizer_css' ) ) {
 		<?php
 		if( $idimgHeader ){
 		?>
-		#main-nav {
-			background: url(<?php echo trim(wp_get_attachment_url( $idimgHeader ) ); ?>); 
+		#header {
+			/*background: url(<?php echo trim(wp_get_attachment_url( $idimgHeader ) ); ?>); */
 		}	
 		<?php
 		}
@@ -110,16 +107,25 @@ if ( ! function_exists( 'quilo_get_customizer_css' ) ) {
 		}	
 		<?php
 		}
+
+		var_dump($color);
 		?>
 		
 		:root {
-			--primary: <?php echo trim( get_theme_mod( 'primary_color', '#4e5367' )); ?>;
-			--secondary: <?php echo trim( get_theme_mod( 'secondary_color', '#000000' )); ?>;			
-			--logo_text: <?php echo trim( get_theme_mod( 'logo_text_color', '#FFE380' )); ?>;
-			--background: #<?php echo trim( get_theme_mod( $color, 'e3edf2' )); ?>;
+			//--primary: <?php echo trim( get_theme_mod( 'primary_color', '#4e5367' )); ?>;
+ 			--background: #<?php echo trim( get_theme_mod( $color, 'e3edf2' )); ?>;
 
-			--light: #f8f9fa;
-			--dark: #343a40;
+ 		}
+		 
+		:root { 
+			--dark-primary-color   : <?php echo trim(get_theme_mod('dark-primary-color', '#303F9F')); ?>; 
+			--default-primary-color: <?php echo trim(get_theme_mod('default-primary-color', '#3F51B5')); ?>; 
+			--light-primary-color  : <?php echo trim(get_theme_mod('light-primary-color', '#C5CAE9')); ?>; 
+			--text-primary-color   : <?php echo trim(get_theme_mod('text-primary-color', '#FFFFFF')); ?>; 
+			--accent-color         : <?php echo trim(get_theme_mod('accent-color', '#FF9800')); ?>; 
+			--primary-text-color   : <?php echo trim(get_theme_mod('primary-text-color', '#212121')); ?>; 
+			--secondary-text-color : <?php echo trim(get_theme_mod('secondary-text-color', '#757575')); ?>;  
+			--divider-color        : <?php echo trim(get_theme_mod('divider-color', '#BDBDBD')); ?>;  
 		}
 		<?php
 		$css = ob_get_clean();
